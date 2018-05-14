@@ -43,11 +43,17 @@ const root = {
         e.labelHasHiding = e.label_has_hiding;
       });
 
+      dgraph.document_links_source.forEach(e => {
+        e.source.locId = e.source.loc_id;
+        e.target.locId = e.target.loc_id;
+      });
+
       return {
         name: dgraph.name,
         version: ~~dgraph.version,
         displayName: dgraph.display_name,
-        oms: dgraph.oms_list
+        oms: dgraph.oms_list,
+        documentLinks: dgraph.document_links_source
       };
     });
   },
@@ -59,9 +65,7 @@ const root = {
         }
         const oms = data.data.oms;
 
-        return {
-          name: oms.name
-        };
+        return oms;
       })
       .catch(err => {
         console.log(err);

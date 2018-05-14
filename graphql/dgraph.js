@@ -45,7 +45,7 @@ const dgraphType = new graphql.GraphQLInterfaceType({
     displayName: { type: graphql.GraphQLString },
     locId: { type: graphql.GraphQLString },
     documentLinks: {
-      type: documentLinkType,
+      type: graphql.GraphQLList(documentLinkType),
       args: {
         limit: { type: graphql.GraphQLInt },
         origin: { type: originEnum }
@@ -71,7 +71,7 @@ const libraryType = new graphql.GraphQLObjectType({
     displayName: { type: graphql.GraphQLString },
     locId: { type: graphql.GraphQLString },
     documentLinks: {
-      type: documentLinkType,
+      type: graphql.GraphQLList(documentLinkType),
       args: {
         limit: { type: graphql.GraphQLInt },
         origin: { type: originEnum }
@@ -98,7 +98,7 @@ const nativeDocumentType = new graphql.GraphQLObjectType({
     displayName: { type: graphql.GraphQLString },
     locId: { type: graphql.GraphQLString },
     documentLinks: {
-      type: documentLinkType,
+      type: graphql.GraphQLList(documentLinkType),
       args: {
         limit: { type: graphql.GraphQLInt },
         origin: { type: originEnum }
